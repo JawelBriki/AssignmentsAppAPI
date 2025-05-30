@@ -35,7 +35,7 @@ function postAssignment(req, res){
     assignment.id = req.body._id;
     assignment.author = req.body.author;
     assignment.subject = req.body.subject;
-    if (req.body.grade) assignment.grade = req.body.grade;
+    if (req.body.grade != null) assignment.grade = req.body.grade;
     assignment.nom = req.body.nom;
     assignment.dateDeRendu = req.body.dateDeRendu;
     assignment.rendu = req.body.rendu;
