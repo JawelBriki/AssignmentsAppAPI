@@ -3,6 +3,8 @@ let bcrypt = require('bcrypt')
 
 // Inscription d'un utilisateur (POST)
 function registerUser(req, res) {
+  console.log("POST register reçu :");
+  console.log(req.body)
   let { username, password } = req.body;
 
   // Vérifier si l'utilisateur existe déjà
@@ -31,7 +33,7 @@ function registerUser(req, res) {
         if (err) {
           return res.status(500).send(err);
         }
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).json(newUser);
       });
     });
   });
@@ -59,7 +61,7 @@ function loginUser(req, res) {
         return res.status(401).json({ message: 'Invalid password' });
       }
 
-      res.status(200).json({ message: 'Login successful' });
+      res.status(200).json(user);
     });
   });
 }
